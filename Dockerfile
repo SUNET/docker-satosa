@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libyaml-dev
 
 RUN pip3 install --upgrade pip setuptools
-RUN pip3 install SATOSA
+RUN pip3 install SATOSA==3.4.4
 
 COPY start.sh /tmp/satosa/start.sh
 COPY attributemaps /tmp/satosa/attributemaps
