@@ -1,26 +1,13 @@
-FROM ubuntu:16.04
+FROM python:3.7.4-buster
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        git \
-        python3-dev \
-        build-essential \
-        python3-pip \
-        libffi-dev \
-        libssl-dev \
-        xmlsec1 \
-        libyaml-dev \
-        wget
+        xmlsec1
 
-# Build satosa using a specific commit
-ENV SATOSA_PIP_TARGET=git+git://github.com/IdentityPython/SATOSA.git@efc709590977a52164f3ccf67aee45b63e4f6008
+ENV SATOSA_SRC_URL=git+https://github.com/IdentityPython/SATOSA.git@803bf24afc49565da8d4d023962515874cfba2f7
 
-# Build pysaml2 using a specific commit
-ENV PYSAML2_PIP_TARGET=git+git://github.com/IdentityPython/pysaml2.git@322a5f64006cf795179005f772b494e6030028bb
-
-RUN pip3 install --upgrade pip setuptools
-RUN pip3 install ldap3
-RUN pip3 install ${PYSAML2_PIP_TARGET}
-RUN pip3 install ${SATOSA_PIP_TARGET}
+# Use a specific commit until a SATOSA release is made with necessary functionality.
+RUN pip install ${SATOSA_SRC_URL} \
+    && pip install ldap3
 
 COPY start.sh /tmp/satosa/start.sh
 COPY attributemaps /tmp/satosa/attributemaps
