@@ -17,7 +17,7 @@ pyjwkest==1.4.2
 pymongo==3.10.1
 pyop==3.0.1
 pyOpenSSL==19.1.0
-pysaml2==5.0.0
+pysaml2==6.5.0
 pystache==0.5.4
 python-dateutil==2.8.1
 pytz==2019.3
