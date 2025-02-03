@@ -3,6 +3,6 @@
 -e git+https://github.com/SUNET/idpy-sdjwt.git#egg=idpysdjwt
 -e git+https://github.com/SUNET/fedservice#egg=fedservice
 -e git+https://github.com/SUNET/satosa-idpy.git#egg=satosa-idpyop
--e git+https://github.com/SUNET/satosa-openid4vci.git#egg=satosa-openid4vci 
+-e git+https://github.com/SUNET/satosa-openid4vci.git#egg=satosa-openid4vci
 pystache
 swamid-plugins==0.1.0
