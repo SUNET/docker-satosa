@@ -18,14 +18,14 @@ versions.txt:
 
 build: .requirements.txt
 	@docker build --build-arg version=$(VERSION) --no-cache=true -t $(NAME):$(VERSION) .
-	@docker tag $(NAME):$(VERSION) docker.sunet.se/$(NAME):$(VERSION)
+	@docker tag $(NAME):$(VERSION) docker.sunet.se/$(NAME):jocar
 
 freeze:
 	mkdir -p versions/$(VERSION)
 	test -f versions/$(VERSION)/requirements.txt || docker run --entrypoint=pip3 $(NAME):$(VERSION) freeze > versions/$(VERSION)/requirements.txt
 
 push:
-	@docker push docker.sunet.se/$(NAME):$(VERSION)
+	@docker push docker.sunet.se/$(NAME):jocar
 
 clean:
 	@rm -f .requirements.txt
