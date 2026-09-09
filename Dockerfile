@@ -1,17 +1,15 @@
-FROM python:3.9-bullseye
+FROM python:3.11-trixie
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
-    python3-dev \
     build-essential \
-    python3-pip \
     libffi-dev \
     libssl-dev \
     xmlsec1 \
     libyaml-dev
-RUN pip3 install --upgrade pip setuptools
+RUN python -m pip install --upgrade pip setuptools
 COPY .requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+RUN python -m pip install -r requirements.txt
 
 # Set language to prevent errors when breaking
 # into the container to run satosa-saml-metadata.
