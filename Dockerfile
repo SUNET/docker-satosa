@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libssl-dev \
     xmlsec1 \
     libyaml-dev
-RUN python -m pip install --upgrade pip setuptools
+RUN python -m pip install \
+    pip==26.2.1 \
+    setuptools==84.0.0
 COPY .requirements.txt requirements.txt
 RUN python -m pip install -r requirements.txt
 
